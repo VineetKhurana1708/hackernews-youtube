@@ -515,10 +515,10 @@
         </div>
         
         <div class="sort-controls">
-            <button class="sort-btn active" data-sort="date-desc">Newest First</button>
+            <button class="sort-btn" data-sort="date-desc">Newest First</button>
             <button class="sort-btn" data-sort="date-asc">Oldest First</button>
             <button class="sort-btn" data-sort="points-desc">Most Upvotes</button>
-            <button class="sort-btn" data-sort="random">Random</button>
+            <button class="sort-btn active" data-sort="random">Random</button>
         </div>
     </div>
     
@@ -563,10 +563,10 @@
         // ============================================================================
         let filteredVideos = [];        // Videos after applying filters
         let currentPage = 1;
-        let currentSort = 'date-desc';
+        let currentSort = 'random';
         let currentFilters = {
             title: '',
-            minPoints: 20,
+            minPoints: 10,
             dateFrom: '',
             dateTo: ''
         };
@@ -621,15 +621,14 @@
         function initializeFilters() {
             // Set up points slider
             elements.filterPoints.addEventListener('input', function() {
-                elements.minPointsValue.textContent = this.value;
-                currentFilters.minPoints = parseInt(this.value);
+                elements.filterPoints.value = 10;
+                elements.minPointsValue.textContent = '10';
+                    currentFilters.minPoints = 10;
             });
             
             // Set default date range to last 6 months
-            const sixMonthsAgo = new Date();
-            sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 6);
-            
-            elements.dateFrom.valueAsDate = sixMonthsAgo;
+            const jan2010 = new Date('2010-01-01');
+            elements.dateFrom.valueAsDate = jan2010;
             elements.dateTo.valueAsDate = new Date();
             
             currentFilters.dateFrom = elements.dateFrom.value;
@@ -821,7 +820,7 @@
                 </div>
                 <div class="video-info">
                     <div class="video-title">
-                        <a href="${youtubeUrl}" target="_blank" title="${video.title}">${video.title || 'Untitled Video'}</a>
+                        <a href="${youtubeUrl}" target="_blank" title="${video.title}">${(video.title || 'Untitled Video').replace(/\[video\]/gi, '').trim()}</a>
                     </div>
                     <div class="meta-info">
                         <div class="meta-item">
@@ -1047,6 +1046,7 @@
 </body>
 
 </html>
+
 
 
 
