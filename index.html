@@ -518,7 +518,7 @@
             <button class="sort-btn active" data-sort="date-desc">Newest First</button>
             <button class="sort-btn" data-sort="date-asc">Oldest First</button>
             <button class="sort-btn" data-sort="points-desc">Most Upvotes</button>
-            <button class="sort-btn" data-sort="comments-desc">Most Comments</button>
+            <button class="sort-btn" data-sort="random">Random</button>
         </div>
     </div>
     
@@ -683,7 +683,8 @@
                 'points-desc': (a, b) => (b.points || 0) - (a.points || 0),
                 'points-asc': (a, b) => (a.points || 0) - (b.points || 0),
                 'comments-desc': (a, b) => (b.num_comments || 0) - (a.num_comments || 0),
-                'comments-asc': (a, b) => (a.num_comments || 0) - (b.num_comments || 0)
+                'comments-asc': (a, b) => (a.num_comments || 0) - (b.num_comments || 0),
+                'random': () => Math.random() - 0.5
             };
             
             return [...videos].sort(sortFunctions[currentSort] || sortFunctions['date-desc']);
@@ -1046,6 +1047,7 @@
 </body>
 
 </html>
+
 
 
 
