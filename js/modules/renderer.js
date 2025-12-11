@@ -25,20 +25,35 @@ function createVideoCard(video, index) {
     const videoId = video.video_id || extractVideoId(video.url);
     const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/${CONFIG.thumbnailQuality}.jpg`;
     const youtubeUrl = video.url || (videoId ? `https://youtu.be/${videoId}` : '#');
+    const cleanTitle = (video.title || 'Untitled Video').replace(/\[video\]/gi, '').trim();
     
     card.innerHTML = `
-        <div class="thumbnail-container">
-            <div class="thumbnail-placeholder" data-src="${thumbnailUrl}" data-index="${index}">
+        <div class="thumbnail-container"
+             data-video-id="${videoId}"
+             data-video-title="${cleanTitle}">
+             
+            <div class="thumbnail-placeholder" 
+                 data-src="${thumbnailUrl}" 
+                 data-index="${index}">
                 <i class="fab fa-youtube" style="font-size: 2rem; color: #666;"></i>
             </div>
+
             <div class="points-badge">
                 <i class="fas fa-caret-up"></i> ${video.points || 0}
             </div>
         </div>
+        
         <div class="video-info">
             <div class="video-title">
-                <a href="${youtubeUrl}" target="_blank" title="${video.title}">${(video.title || 'Untitled Video').replace(/\[video\]/gi, '').trim()}</a>
+                <a href="#"
+                   class="video-title-link"
+                   data-video-id="${videoId}"
+                   data-video-title="${cleanTitle}"
+                   title="${cleanTitle}">
+                    ${cleanTitle}
+                </a>
             </div>
+            
             <div class="meta-info">
                 <div class="meta-item">
                     <i class="far fa-calendar"></i> ${dateStr}
@@ -49,11 +64,6 @@ function createVideoCard(video, index) {
                 <div class="meta-item">
                     <i class="far fa-comment"></i> ${video.num_comments || 0}
                 </div>
-            </div>
-            <div class="links">
-                <a href="${youtubeUrl}" class="btn btn-primary" target="_blank">
-                    <i class="fab fa-youtube"></i> Watch
-                </a>
             </div>
         </div>
     `;

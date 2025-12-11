@@ -28,7 +28,12 @@ class App {
             prevPage: document.getElementById('prevPage'),
             nextPage: document.getElementById('nextPage'),
             pageNumbers: document.getElementById('pageNumbers'),
-            currentDate: document.getElementById('currentDate')
+            currentDate: document.getElementById('currentDate'),
+            // Inline video player elements
+            videoModal: document.getElementById('videoModal'),
+            videoPlayer: document.getElementById('videoPlayer'),
+            closeVideoModal: document.getElementById('closeVideoModal'),
+            videoModalTitle: document.getElementById('videoModalTitle')
         };
     }
 

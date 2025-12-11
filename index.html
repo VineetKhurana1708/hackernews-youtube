@@ -78,6 +78,24 @@
             <p style="margin-top: 15px;">Loading 7,000+ videos from Hacker News...</p>
         </div>
     </div>
+
+    <!-- Inline video player modal -->
+    <div id="videoModal" class="video-modal" aria-hidden="true" role="dialog" aria-modal="true">
+        <div class="video-modal-backdrop"></div>
+        <div class="video-modal-content">
+            <button id="closeVideoModal" class="video-modal-close" aria-label="Close video">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="video-modal-body">
+                <div id="videoModalTitle" class="video-modal-title"></div>
+                <div class="video-modal-player">
+                    <iframe id="videoPlayer" src="" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
     
     <div class="pagination">
         <button id="prevPage" class="page-btn" disabled>
