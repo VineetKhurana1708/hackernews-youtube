@@ -7,10 +7,11 @@ export function initializeFilters(elements) {
         STATE.currentFilters.minPoints = Number(val);
     });
     
-    const sixMonthsAgo = new Date();
-    sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 6);
-    elements.dateFrom.valueAsDate = sixMonthsAgo;
+
+    const jan2010 = new Date('2010-01-01');
+    elements.dateFrom.valueAsDate = jan2010;
     elements.dateTo.valueAsDate = new Date();
+
     
     STATE.currentFilters.dateFrom = elements.dateFrom.value;
     STATE.currentFilters.dateTo = elements.dateTo.value;

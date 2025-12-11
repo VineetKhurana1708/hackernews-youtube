@@ -1,4 +1,4 @@
-import { CONFIG } from './state.js';
+import { CONFIG, STATE } from './state.js'; 
 import { extractVideoId, formatDate, lazyLoadThumbnails } from './utils.js';
 
 export function renderVideos(videos, elements) {

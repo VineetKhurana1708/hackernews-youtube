@@ -1,4 +1,5 @@
 import { STATE } from './state.js';
+import { CONFIG } from './state.js';
 
 export function getPaginatedVideos(videos, page, itemsPerPage) {
     const start = (page - 1) * itemsPerPage;
