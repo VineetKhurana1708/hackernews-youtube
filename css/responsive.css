@@ -1,0 +1,94 @@
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    
+    .header {
+        padding: 20px 15px;
+        margin-bottom: 20px;
+    }
+    
+    .header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .header .subtitle {
+        font-size: 1rem;
+    }
+    
+    .filters-container {
+        padding: 20px 15px;
+    }
+    
+    .filters-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .video-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .results-info {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 15px;
+    }
+    
+    .sort-controls {
+        justify-content: center;
+    }
+    
+    .sort-btn {
+        padding: 8px 12px;
+        font-size: 0.85rem;
+    }
+    
+    .filter-btn {
+        padding: 10px 20px;
+        font-size: 0.95rem;
+    }
+    
+    .thumbnail-container {
+        height: 160px;
+    }
+    
+    .video-info {
+        padding: 15px;
+    }
+    
+    .meta-info {
+        flex-direction: column;
+        gap: 8px;
+        align-items: flex-start;
+    }
+    
+    .pagination {
+        gap: 5px;
+    }
+    
+    .page-btn {
+        padding: 6px 12px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .header h1 {
+        font-size: 1.5rem;
+    }
+    
+    .filter-actions {
+        flex-direction: column;
+    }
+    
+    .sort-btn {
+        padding: 6px 10px;
+        font-size: 0.8rem;
+    }
+    
+    .thumbnail-container {
+        height: 140px;
+    }
+}
